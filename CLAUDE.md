@@ -1,4 +1,4 @@
-"Fraga" — a deliberately **single-page** marketing site for a luxury watch business (the folder is still named `oficina`; the brand was renamed). Keep it to one page: new content goes in as sections of `index.html`, not new pages.
+"Fraga" — a **multi-page** marketing site for a luxury watch business (the folder is still named `oficina`; the brand was renamed). One HTML file per nav topic: `index.html` (home), `story.html`, `collection.html`, `faq.html`, `contact.html`. Shared `styles.css` and `site.js`; the background stage, nav and footer are duplicated in each page, so when adding a page or nav item update every page.
 
 ##Design
 
