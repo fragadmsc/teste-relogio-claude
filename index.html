@@ -145,18 +145,33 @@
   .faq { background: linear-gradient(transparent, rgba(3,9,18,.88) 20%, rgba(3,9,18,.88) 80%, transparent); }
   .faq-list { margin-top: 40px; max-width: 860px; border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); position: relative; }
+  .faq-item::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: linear-gradient(90deg, var(--gold), transparent 70%); transform: scaleX(0); transform-origin: left; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .faq-item[open]::after { transform: scaleX(1); }
   .faq-item summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 56px 1fr 24px; align-items: baseline; gap: 14px; padding: 30px 0; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item .no { font-size: 14px; letter-spacing: .25em; color: var(--gold); }
-  .faq-item h3 { font-size: clamp(24px, 2.8vw, 36px); font-weight: 300; line-height: 1.1; transition: color .4s; }
+  .faq-item summary:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+  .faq-item .no { font-size: 14px; letter-spacing: .25em; color: var(--gold); opacity: .7; transition: opacity .4s; }
+  .faq-item h3 { font-size: clamp(24px, 2.8vw, 36px); font-weight: 300; line-height: 1.1; transition: color .4s, transform .5s cubic-bezier(.2,.7,.2,1); }
+  .faq-item summary:hover h3 { transform: translateX(6px); }
   .faq-item summary:hover h3, .faq-item[open] h3 { color: var(--gold-soft); }
-  .faq-item .plus { font-family: "Cormorant Garamond", Georgia, serif; font-size: 28px; color: var(--gold); text-align: right; transition: transform .4s; }
-  .faq-item[open] .plus { transform: rotate(45deg); }
-  .faq-item p { color: var(--muted); font-size: 15px; max-width: 38em; padding: 0 38px 32px 70px; }
+  .faq-item[open] .no, .faq-item summary:hover .no { opacity: 1; }
+  .faq-item .plus { font-family: "Cormorant Garamond", Georgia, serif; font-size: 28px; color: var(--gold); text-align: right; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .faq-item[open] .plus { transform: rotate(135deg); }
+  .faq-body { padding: 0 38px 34px 70px; max-width: 42em; animation: faqIn .6s cubic-bezier(.2,.7,.2,1); }
+  .faq-body p { color: var(--muted); font-size: 15px; }
+  .faq-body .fact { display: block; margin-top: 16px; font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+  .faq-body .fact::before { content: ""; display: inline-block; width: 28px; height: 1px; background: var(--gold); vertical-align: middle; margin-right: 12px; }
+  @keyframes faqIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+  .faq-more { margin-top: 44px; max-width: 860px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 28px; }
+  .faq-more p { font-size: clamp(22px, 2.4vw, 30px); font-weight: 300; color: var(--fg); }
+  .faq-more p em { color: var(--gold-soft); }
+  .faq-more a { color: var(--gold); text-decoration: none; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 4px; transition: color .3s, border-color .3s; }
+  .faq-more a:hover { color: var(--gold-soft); border-color: var(--gold-soft); }
   @media (max-width: 700px) {
     .faq-item summary { grid-template-columns: 36px 1fr 20px; gap: 10px; padding: 24px 0; }
-    .faq-item p { padding: 0 0 26px 46px; }
+    .faq-body { padding: 0 0 26px 46px; }
   }
+  @media (prefers-reduced-motion: reduce) { .faq-body { animation: none; } .faq-item h3, .faq-item::after { transition: none; } }
 
   .cta { align-items: center; text-align: center; }
   .btn { display: inline-block; margin-top: 36px; padding: 18px 46px; border: 1px solid var(--gold); background: rgba(201,164,92,.06); color: var(--fg); text-decoration: none; letter-spacing: .3em; text-transform: uppercase; font-size: 12px; transition: background .35s, color .35s; }
@@ -263,22 +278,38 @@
     <p class="eyebrow reveal">Questions</p>
     <h2 class="serif reveal d1">Before you <em>decide.</em></h2>
     <div class="faq-list">
-      <details class="faq-item reveal d1">
+      <details class="faq-item reveal d1" name="faq" open>
         <summary><span class="no">I</span><h3 class="serif">Is every Fraga watch authentic, and how can I prove it?</h3><span class="plus">+</span></summary>
-        <p>Every piece is assembled in our workshop and ships with a numbered certificate of authenticity, a serial engraved on the case back and a sealed service booklet. Your watch is registered to you from day one.</p>
+        <div class="faq-body"><p>Every piece is assembled in our workshop and ships with a numbered certificate of authenticity, a serial engraved on the case back and a sealed service booklet. Your watch is registered to you from day one.</p><span class="fact">Numbered certificate · Engraved serial</span></div>
       </details>
-      <details class="faq-item reveal d2">
+      <details class="faq-item reveal d2" name="faq">
         <summary><span class="no">II</span><h3 class="serif">Is it a safe investment, and will it hold its value?</h3><span class="plus">+</span></summary>
-        <p>We never promise returns, but steel-and-gold cases, limited runs and hand finishing are what collectors look for. Keep the box, papers and service record and your watch will remain easy to resell.</p>
+        <div class="faq-body"><p>We never promise returns, but steel-and-gold cases, limited runs and hand finishing are what collectors look for. Keep the box, papers and service record and your watch will remain easy to resell.</p><span class="fact">Keep the box &amp; papers</span></div>
       </details>
-      <details class="faq-item reveal d3">
+      <details class="faq-item reveal d3" name="faq">
         <summary><span class="no">III</span><h3 class="serif">What if it doesn't suit me once it arrives?</h3><span class="plus">+</span></summary>
-        <p>You have 30 days to return it, fully insured, for a full refund. Wear it, see how it sits on your wrist, and decide without pressure.</p>
+        <div class="faq-body"><p>You have 30 days to return it, fully insured, for a full refund. Wear it, see how it sits on your wrist, and decide without pressure.</p><span class="fact">30 days · Full refund</span></div>
       </details>
-      <details class="faq-item reveal d3">
+      <details class="faq-item reveal d3" name="faq">
         <summary><span class="no">IV</span><h3 class="serif">How is the watch serviced and protected over the years?</h3><span class="plus">+</span></summary>
-        <p>A 5-year warranty covers the movement. We recommend a service every five to seven years, performed by our own watchmakers with genuine parts, and we repair every Fraga for life.</p>
+        <div class="faq-body"><p>A 5-year warranty covers the movement. We recommend a service every five to seven years, performed by our own watchmakers with genuine parts, and we repair every Fraga for life.</p><span class="fact">5-year warranty · Repaired for life</span></div>
       </details>
+      <details class="faq-item reveal d3" name="faq">
+        <summary><span class="no">V</span><h3 class="serif">Will it fit my wrist, and can the strap be changed?</h3><span class="plus">+</span></summary>
+        <div class="faq-body"><p>Cases are sized to sit comfortably on wrists from 15 to 20 cm, and every strap or bracelet is fitted by hand before shipping. Spare straps are available at any time and swap in seconds, no tools needed.</p><span class="fact">Free sizing · Quick-release straps</span></div>
+      </details>
+      <details class="faq-item reveal d3" name="faq">
+        <summary><span class="no">VI</span><h3 class="serif">Can I wear it at the beach, or in the sea?</h3><span class="plus">+</span></summary>
+        <div class="faq-body"><p>Yes. Every Fraga is water resistant to 100 metres, with a screw-down crown and sapphire crystal. Rinse it in fresh water after a swim and it will keep its glow for decades.</p><span class="fact">100 m water resistance</span></div>
+      </details>
+      <details class="faq-item reveal d3" name="faq">
+        <summary><span class="no">VII</span><h3 class="serif">How long does shipping take, and is it insured?</h3><span class="plus">+</span></summary>
+        <div class="faq-body"><p>Orders ship within three working days, fully insured and signature-required, anywhere in the world. Your watch arrives in its presentation box, ready to be given or worn.</p><span class="fact">Free insured worldwide shipping</span></div>
+      </details>
+    </div>
+    <div class="faq-more reveal">
+      <p class="serif">Still wondering? <em>Ask the watchmaker.</em></p>
+      <a href="mailto:hello@fraga.example">Write to us</a>
     </div>
   </section>
 
