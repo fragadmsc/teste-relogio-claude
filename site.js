@@ -1,11 +1,11 @@
 // Scroll: watch drifts, zooms, rotates and fades into darkness
 const watch = document.getElementById("watchWrap"), veil = document.getElementById("veil");
-const sub = document.body.classList.contains("sub");
 let ticking = false;
 function onScroll() {
   const max = document.documentElement.scrollHeight - innerHeight;
-  const raw = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
-  const p = sub ? .7 + raw * .3 : raw; // inner pages start already dimmed so text stays readable over the watch
+  const y = Math.min(max, Math.max(0, scrollY));
+  // Scrolling past the hero takes the watch to 70% dimmed so the text below stays readable; the rest of the page finishes the fade
+  const p = y < innerHeight ? .7 * y / innerHeight : .7 + .3 * (y - innerHeight) / Math.max(1, max - innerHeight);
   const scale = 1 + p * 0.35;
   const rot = -p * 8;
   watch.style.transform = `translateY(${-p * 4}vh) scale(${scale}) rotate(${rot}deg)`;

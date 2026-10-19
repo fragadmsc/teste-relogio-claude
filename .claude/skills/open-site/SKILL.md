@@ -1,13 +1,12 @@
 ---
 name: open-site
-description: Serve the Fraga site over real HTTP and open it in the integrated browser in the side panel. Use when the user asks to open, preview, view, show or run the site, or to see a page (home, story, collection, faq, contact) in the browser.
+description: Serve the Fraga site over real HTTP and open it in the integrated browser in the side panel. Use when the user asks to open, preview, view, show or run the site, or to see a section (hero, story, collection, faq, contact) in the browser.
 ---
 
 # Open the site in the side-panel browser
 
-The site is plain static files (`index.html`, `story.html`, `collection.html`,
-`faq.html`, `contact.html`, `styles.css`, `site.js`, `watch.jpg`) at the project
-root. Always look at it the way a visitor would: the real files, served over
+The site is a single page of plain static files (`index.html`, `styles.css`,
+`site.js`, `watch.jpg`) at the project root. Always look at it the way a visitor would: the real files, served over
 HTTP, in the real browser.
 
 ## Never take shortcuts
@@ -44,8 +43,9 @@ These can make the page look different from the real site, so never use them:
    `runtimeArgs` and `port` (e.g. 8001) and start again. Never point it at
    another process's server.
 
-3. **Go to the page you want.** For a page other than home, call
-   `mcp__Claude_Browser__navigate` with `http://localhost:8000/<page>.html`.
+3. **Go to the section you want.** Everything is on `index.html`; to jump to a
+   section call `mcp__Claude_Browser__navigate` with
+   `http://localhost:8000/#<id>` (`story`, `collection`, `faq`, `contact`).
 
 4. **Make sure the page is current.** If files were edited since the tab was
    opened, reload it so the browser doesn't show cached CSS/JS:
@@ -64,8 +64,7 @@ These can make the page look different from the real site, so never use them:
    - The watch photo blends into the navy with no visible rectangle around it
      (that rectangle means `mix-blend-mode: lighten` or the radial
      `mask-image` failed).
-   - The top menu has its background and text doesn't overlap when scrolled.
-   - The nav and footer are present.
+   - There is no navigation bar at the top, and the footer is present.
 
 7. **Report back** in a line or two: the URL that's open, which checks passed,
    and the screenshot. Leave the server running so the user can keep browsing
@@ -75,5 +74,5 @@ These can make the page look different from the real site, so never use them:
 
 - **Phone layout:** `resize_window` with `preset: "mobile"`, reload, take a
   screenshot, then switch back with `preset: "desktop"`.
-- **Every page:** repeat steps 3–6 for `index`, `story`, `collection`, `faq`
-  and `contact`.
+- **Every section:** scroll through, or repeat steps 3–6 for `#story`,
+  `#collection`, `#faq` and `#contact`.
