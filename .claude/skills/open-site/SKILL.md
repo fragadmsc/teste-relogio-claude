@@ -64,7 +64,9 @@ These can make the page look different from the real site, so never use them:
    - The watch photo blends into the navy with no visible rectangle around it
      (that rectangle means `mix-blend-mode: lighten` or the radial
      `mask-image` failed).
-   - There is no navigation bar at the top, and the footer is present.
+   - The top bar shows the Fraga logo (left) and "Join the list" (right) on
+     its own background, text doesn't overlap it when scrolled, and the
+     footer is present.
 
 7. **Report back** in a line or two: the URL that's open, which checks passed,
    and the screenshot. Leave the server running so the user can keep browsing

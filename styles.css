@@ -80,6 +80,20 @@ body {
   #watchWrap img { width: 190%; max-width: none; margin-left: -45%; }
 }
 
+/* ---------- Nav ---------- */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px clamp(20px, 5vw, 64px);
+  background: rgba(3, 9, 18, .88);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.logo { letter-spacing: .38em; text-transform: uppercase; font-size: 15px; font-weight: 500; }
+.logo a { color: inherit; text-decoration: none; }
+.nav-btn { font: inherit; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--fg); background: rgba(201,164,92,.06); border: 1px solid var(--gold); padding: 10px 22px; cursor: pointer; transition: background .35s, color .35s; }
+.nav-btn:hover { background: var(--gold); color: #06121f; }
+
 /* ---------- Content ---------- */
 main { position: relative; z-index: 5; }
 section {
@@ -146,6 +160,9 @@ footer { position: relative; z-index: 5; text-align: center; padding: 40px 20px;
 .reveal.d1 { transition-delay: .15s; } .reveal.d2 { transition-delay: .3s; } .reveal.d3 { transition-delay: .45s; }
 
 @media (max-width: 700px) {
+  nav { padding: 14px 16px; }
+  .logo { font-size: 13px; letter-spacing: .26em; }
+  .nav-btn { font-size: 10px; letter-spacing: .18em; padding: 9px 14px; }
   .panel.right { text-align: left; margin-left: 0; }
   .panel.right p.lead { margin-left: 0; }
   section:not(.hero) { padding-top: 90px; }
