@@ -112,6 +112,12 @@ p.lead { font-size: clamp(16px, 1.5vw, 20px); color: #b9cbd8; max-width: 34em; }
 .panel.right { margin-left: auto; text-align: right; }
 .panel.right p.lead { margin-left: auto; }
 
+/* Proof under the story claim: smaller heading so it reads as support, not a new section */
+.proof { margin-top: 72px; }
+.proof h3 { font-size: clamp(28px, 3.4vw, 44px); font-weight: 300; line-height: 1.1; }
+.proof h3 em { color: var(--gold-soft); font-style: italic; }
+.proof + .specs { margin-top: 28px; }
+
 /* Specs: open row, no boxes — hairlines only */
 .specs { display: flex; flex-wrap: wrap; gap: 34px 0; margin-top: 56px; max-width: 820px; border-top: 1px solid rgba(201,164,92,.45); padding-top: 34px; }
 .specs div { flex: 1 1 150px; padding: 0 28px; border-left: 1px solid var(--line); }
