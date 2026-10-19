@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rm *.png*)",
+      "Bash(rm *.jpg*)",
+      "Bash(rm *.jpeg*)",
+      "Bash(rm *.PNG*)",
+      "Bash(rm *.JPG*)",
+      "Bash(rm *.JPEG*)",
+      "Bash(git rm *.png*)",
+      "Bash(git rm *.jpg*)",
+      "Bash(git rm *.jpeg*)",
+      "Bash(unlink *.png*)",
+      "Bash(unlink *.jpg*)",
+      "Bash(unlink *.jpeg*)"
+    ]
+  }
+}
