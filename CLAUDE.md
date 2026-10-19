@@ -14,8 +14,10 @@
 
 - The specs row and collection list are intentionally borderless/hairline-only (no boxes or cards) to fit the luxury aesthetic
 
+- No prices on the page: showing explicit prices is not a luxury-brand move. The collection lists models without them.
+
 ##Architecture 
 
-- All copy, prices, model names and the hello@fraga.example contact address are placeholders.
+- All copy and model names are placeholders. Every "Join the list" button (top bar, hero, end of page) is intentionally inert for now.
 
 - The photo's black background is blended into the navy page with mix-blend-mode: lighten plus a radial mask-image; changing either re-exposes a visible rectangle around the photo.

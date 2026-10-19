@@ -128,7 +128,7 @@ p.lead { font-size: clamp(16px, 1.5vw, 20px); color: #b9cbd8; max-width: 34em; }
 /* Collection: editorial list, no cards */
 .collection { background: linear-gradient(transparent, rgba(3,9,18,.88) 20%, rgba(3,9,18,.88) 80%, transparent); }
 .list { margin-top: 56px; max-width: 1000px; border-top: 1px solid var(--line); }
-.piece { display: grid; grid-template-columns: 64px 1.1fr 1.6fr auto; align-items: baseline; gap: 24px; padding: 38px 0; border-bottom: 1px solid var(--line); position: relative; transition: padding-left .5s cubic-bezier(.2,.7,.2,1); }
+.piece { display: grid; grid-template-columns: 64px 1.1fr 1.6fr; align-items: baseline; gap: 24px; padding: 38px 0; border-bottom: 1px solid var(--line); position: relative; transition: padding-left .5s cubic-bezier(.2,.7,.2,1); }
 .piece::before { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0; background: linear-gradient(90deg, var(--gold), transparent); transition: width .7s cubic-bezier(.2,.7,.2,1); }
 .piece:hover { padding-left: 14px; }
 .piece:hover::before { width: 100%; }
@@ -136,7 +136,6 @@ p.lead { font-size: clamp(16px, 1.5vw, 20px); color: #b9cbd8; max-width: 34em; }
 .piece h3 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 300; line-height: 1; transition: color .4s; }
 .piece:hover h3 { color: var(--gold-soft); font-style: italic; }
 .piece p { color: var(--muted); font-size: 14px; max-width: 28em; }
-.piece .price { font-family: "Cormorant Garamond", Georgia, serif; font-size: 26px; font-weight: 300; color: var(--fg); white-space: nowrap; }
 
 /* FAQ: hairline accordion, no boxes */
 .faq { background: linear-gradient(transparent, rgba(3,9,18,.88) 20%, rgba(3,9,18,.88) 80%, transparent); }
@@ -174,9 +173,8 @@ footer { position: relative; z-index: 5; text-align: center; padding: 40px 20px;
   section:not(.hero) { padding-top: 90px; }
   .specs div { flex-basis: 45%; padding: 0 16px; }
   .specs div:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .piece { grid-template-columns: 40px 1fr auto; gap: 8px 14px; padding: 28px 0; }
-  .piece p { grid-column: 2 / 4; grid-row: 2; }
-  .piece .price { grid-column: 3; grid-row: 1; font-size: 22px; }
+  .piece { grid-template-columns: 40px 1fr; gap: 8px 14px; padding: 28px 0; }
+  .piece p { grid-column: 2; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
