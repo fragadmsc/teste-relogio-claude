@@ -21,3 +21,7 @@
 - All copy and model names are placeholders. Every "Join the list" button (top bar, hero, end of page) is intentionally inert for now.
 
 - The photo's black background is blended into the navy page with mix-blend-mode: lighten plus a radial mask-image; changing either re-exposes a visible rectangle around the photo.
+
+##Design reference
+
+- Before making any change to the design (styles, layout, colors, fonts, spacing), read `DESIGN.md` and follow it. If an instruction contradicts `DESIGN.md`, ask the user before proceeding.
