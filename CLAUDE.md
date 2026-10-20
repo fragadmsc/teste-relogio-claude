@@ -1,4 +1,4 @@
-"Fraga" — a **single-page** marketing site for a luxury watch business (the folder is still named `oficina`; the brand was renamed). Everything lives in `index.html` as one long scroll: hero, story, collection, FAQ, contact, in that order. The site should stay one page (no separate HTML pages). The top bar holds only the Fraga logo (top left) and a "Join the list" button (top right) that is intentionally inert for now; it has no section links. The bar needs its own background so it doesn't overlap the text underneath. Shared `styles.css` and `site.js`.
+"Fraga" — a **single-page** marketing site for a luxury watch business (the folder is still named `oficina`; the brand was renamed). Everything lives in `index.html` as one long scroll: hero, intro + specs (`#story`), collection, FAQ, closing "Join the list" (`#contact`), in that order. The site should stay one page (no separate HTML pages). The top bar holds only the Fraga logo (top left) and a "Join the list" button (top right) that is intentionally inert for now; it has no section links. The bar needs its own background so it doesn't overlap the text underneath. Shared `styles.css` and `site.js`.
 
 ##Brand
 
