@@ -70,7 +70,7 @@ A section title and the first model name below it are the same size on purpose; 
 
 - Single page, one long scroll: hero → story (`#story`) → collection → FAQ → contact (`#contact`).
 - Every section is at least full viewport height, content vertically centered.
-- Section padding: `clamp(24px, 8vw, 120px)` horizontal, `120px` vertical (`90px` top on mobile, non-hero).
+- Section padding: `clamp(24px, 8vw, 120px)` horizontal, `120px` vertical (`96px` top on mobile, non-hero).
 - Spacing scale (use these, not ad-hoc values): `16 · 24 · 40 · 64 · 96 · 120` px.
   - Between heading and paragraph: 24px.
   - Between a block and its list or specs row: 64px.
@@ -102,12 +102,3 @@ A section title and the first model name below it are the same size on purpose; 
 - Scroll reveal: fade + 46px rise, 1.1s, `cubic-bezier(.2, .7, .2, 1)`, staggered .15s steps.
 - Ambient: stars twinkle (7s), moonlight shimmers (6s), waves drift (28s / 40s).
 - Respect `prefers-reduced-motion`: no reveal, no smooth scroll.
-
-## Known conflicts with the current `styles.css` (to refactor)
-
-- Hero subline currently uses `p.lead` (`#b9cbd8`, weight 300), too low in contrast over the photo; must become Inter 400 in `--fg`.
-- `h2` and `h3` currently share weight 300; `h2` must move to 400.
-- Many font sizes in use (10, 11, 12, 13, 14, 15, 16, 24, 28, 30, 36, 38, 44, 48, 58, 76, 110 px and several clamps); must collapse to four.
-- Gold currently on eyebrow, spec labels, spec top hairline, numbering, FAQ `+`, collection hover line, and `--gold-soft` on `em` and hovers; must be removed from all of these.
-- Spacing values are ad hoc (18, 22, 28, 34, 38, 56, 72 px…); move to the spacing scale.
-- `--gold-soft` token to be removed.
