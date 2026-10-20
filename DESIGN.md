@@ -5,7 +5,7 @@ Source of truth for the look of the site. Derived from `styles.css`, plus the ru
 ## Rules
 
 1. **Four font sizes only.** The site uses exactly the four sizes in the Type scale. No other `font-size` values.
-2. **Two fonts only.** Cormorant Garamond (serif) and Inter (sans). No third family, no fallback-driven look.
+2. **Two fonts only.** Cormorant Garamond (serif) and Inter (sans). No third family, no fallback-driven look. **Exception: the logo** (see below).
 3. **Gold is reserved for the call to action.** Gold appears only on "Join the list" buttons (top bar, hero, end of page): border, hover fill, and nothing else. Not on eyebrows, numbers, spec labels, hairlines, emphasis (`em`), hover states, or icons.
 4. **Whitespace first.** Give every block room. When in doubt, add space rather than tighten. Nothing should feel crammed.
 5. **Ask before contradicting this file.** If an instruction from the user conflicts with anything here, stop and ask which wins before making the change.
@@ -46,6 +46,8 @@ Fonts (Google Fonts):
 | Body | `16px` | Inter | 300 | Paragraphs, lead, descriptions, FAQ answers; line-height 1.6 |
 | Caption | `12px` | Inter | 400–500 | Logo, buttons, eyebrow, spec labels, numbering, footer; uppercase, tracking .25–.4em |
 
+**Logo exception.** The Fraga logo is a brand mark, not typography. It does not have to follow the sans-serif (Inter) style or the type scale, and it may use its own typeface, size, weight and tracking. It is the only element exempt from Rules 1 and 2. It still follows the color rules (never gold) and keeps its place at the top left of the top bar.
+
 Hierarchy beyond size comes from font, weight, case and color, never from a fifth size. These rules are mandatory, because several levels share a size:
 
 **Headings (shared Heading size, told apart by weight, style and space)**
@@ -80,7 +82,7 @@ A section title and the first model name below it are the same size on purpose; 
 
 ## Components
 
-**Top bar.** Fixed. Logo top left, "Join the list" button top right, nothing else. Own background `rgba(3, 9, 18, .88)` with 14px backdrop blur and a bottom hairline, so it never overlaps the text beneath. Padding `18px clamp(20px, 5vw, 64px)`.
+**Top bar.** Fixed. Logo top left (exempt from the type rules, see Logo exception), "Join the list" button top right, nothing else. Own background `rgba(3, 9, 18, .88)` with 14px backdrop blur and a bottom hairline, so it never overlaps the text beneath. Padding `18px clamp(20px, 5vw, 64px)`.
 
 **CTA button ("Join the list").** Transparent-ish fill, 1px gold border, `--fg` text, Caption size, uppercase. Hover: gold fill, dark text, 0.35s. Padding `18px 46px` (nav: `10px 22px`). This is the only gold on the site.
 
